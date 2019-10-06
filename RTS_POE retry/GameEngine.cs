@@ -255,6 +255,11 @@ namespace RTS_POE
         {
             battleMap.Save();
         }
+        public void Load()
+        {
+            battleMap.Load();
+            UpdatePannle();
+        }
     }
 
     

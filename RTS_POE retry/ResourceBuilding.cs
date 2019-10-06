@@ -41,6 +41,10 @@ namespace RTS_POE
 
         }
 
+       
+
+
+
         //checks the current remaining resources in referance to how many were avaliable at the beggining...
         public string status
         {
@@ -97,10 +101,10 @@ namespace RTS_POE
 
         public override void saveFile()
         {
-            FileStream savefile = new FileStream(Environment.CurrentDirectory + "\\ResourcesBuildings.txt", FileMode.Append, FileAccess.Write);
+            FileStream savefile = new FileStream(Environment.CurrentDirectory + "\\ResourceBuildings.txt", FileMode.Append, FileAccess.Write);
             StreamWriter writer = new StreamWriter(savefile);
-
-            writer.WriteLine(Team + "," + XPos + "," + YPos + "," + Health + "," + HEALTH_MAX + "," + rType + "," + rGenTotal + "," + rGenPerRound + "," + rPool);
+            //0= team, 1= x, 2= y, 3= health, 4 = rType , 5= total generated, 6 =gen speed, 7 = total pool
+            writer.WriteLine(Team + "," + XPos + "," + YPos + "," + Health + "," + rType + "," + rGenTotal + "," + rGenPerRound + "," + rPool);
             Console.WriteLine("Saved!");
             writer.Close();
             savefile.Close();

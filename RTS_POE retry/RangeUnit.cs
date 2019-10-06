@@ -13,7 +13,7 @@ namespace RTS_POE
 
         public RangeUnit(string name, int xPos, int yPos, int health, int speed, int attack, int attackRange, int team, string symbol, bool isAttacking) : base(xPos, yPos, 70, 1, attack, 2, team, "U", false)
         {
-            HEALTH_MAX = health;
+            HEALTH_MAX = 150;
             this.name = name;
             this.xPos = xPos;
             this.yPos = yPos;
@@ -247,8 +247,8 @@ namespace RTS_POE
             FileStream savefile = new FileStream(Environment.CurrentDirectory + "\\RangeUnits.txt", FileMode.Append, FileAccess.Write);
             StreamWriter writer = new StreamWriter(savefile);
 
-            writer.WriteLine(Team + ", " + XPos + ", " + YPos + ", " + Health + " ," + HEALTH_MAX + ", " + speed);
-            Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory + "\nSaved!");
+            writer.WriteLine(Team + "," + XPos + "," + YPos + "," + Health + "," + attack);
+            Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory + "Saved!");
             writer.Close();
             savefile.Close();
         }

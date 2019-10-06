@@ -32,6 +32,7 @@
             this.btnStartStop = new System.Windows.Forms.Button();
             this.tmrClock = new System.Windows.Forms.Timer(this.components);
             this.gbxUntilUI = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.lblBattleLog = new System.Windows.Forms.Label();
             this.lbxBattleLog = new System.Windows.Forms.ListBox();
             this.lblSelectedUnit = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSave = new System.Windows.Forms.Button();
             this.gbxUntilUI.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +53,7 @@
             // btnStartStop
             // 
             this.btnStartStop.Location = new System.Drawing.Point(4, 655);
-            this.btnStartStop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStartStop.Margin = new System.Windows.Forms.Padding(2);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(134, 40);
             this.btnStartStop.TabIndex = 2;
@@ -83,6 +83,16 @@
             this.gbxUntilUI.Size = new System.Drawing.Size(364, 700);
             this.gbxUntilUI.TabIndex = 4;
             this.gbxUntilUI.TabStop = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(4, 611);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(134, 40);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblBattleLog
             // 
@@ -135,17 +145,18 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(224, 611);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(134, 40);
             this.button2.TabIndex = 4;
             this.button2.Text = "Load";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnStop
             // 
             this.btnStop.Location = new System.Drawing.Point(224, 655);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(2);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(134, 40);
             this.btnStop.TabIndex = 4;
@@ -155,7 +166,7 @@
             // btnPause
             // 
             this.btnPause.Location = new System.Drawing.Point(142, 611);
-            this.btnPause.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPause.Margin = new System.Windows.Forms.Padding(2);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(77, 84);
             this.btnPause.TabIndex = 3;
@@ -202,16 +213,6 @@
             this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.loadToolStripMenuItem.Text = "Load";
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(4, 611);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(134, 40);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,7 +222,7 @@
             this.Controls.Add(this.gbxUntilUI);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GameWindow";
             this.Text = "Form1";
             this.gbxUntilUI.ResumeLayout(false);

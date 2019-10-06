@@ -12,7 +12,7 @@ namespace RTS_POE
         // yet another constructor that does constructing
         public MeleeUnit(string name, int xPos, int yPos, int health, int speed, int attack, int attackRange, int team, string symbol, bool isAttacking) : base(xPos, yPos, 110, 1, attack, 1, team, "O", false)
         {
-            HEALTH_MAX = health;
+            HEALTH_MAX = 200;
             this.name = name;
             this.xPos = xPos;
             this.yPos = yPos;
@@ -255,7 +255,7 @@ namespace RTS_POE
             FileStream savefile = new FileStream(Environment.CurrentDirectory +"\\MeleeUnits.txt", FileMode.Append, FileAccess.Write);
             StreamWriter writer = new StreamWriter(savefile);
 
-            writer.WriteLine(Team + ", " + XPos + ", " + YPos + ", " + Health + " ," + HEALTH_MAX + ", " + speed);
+            writer.WriteLine(Team + "," + XPos + "," + YPos + "," + Health + "," + attack);
             Console.WriteLine("Saved!");
             writer.Close();
             savefile.Close();

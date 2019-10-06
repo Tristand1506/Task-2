@@ -75,5 +75,10 @@ namespace RTS_POE
             engine.Save();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            engine.Load();
+        }
     } 
 }

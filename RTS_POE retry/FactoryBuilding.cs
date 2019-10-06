@@ -19,7 +19,7 @@ namespace RTS_POE
         //constructor
         public FactoryBuilding(string name, int xPos, int yPos, int health, int team, string symbol, int unitType, int speed) : base(xPos, yPos, name, 110, team, "O")
         {
-            HEALTH_MAX = health;
+            HEALTH_MAX = 400;
             this.name = name;
             this.xPos = xPos;
             this.yPos = yPos;
@@ -94,7 +94,7 @@ namespace RTS_POE
                 case 3: tempAttack = 20; break;
             }
 
-            // randomly gives unit type
+            // gives unit type
             switch (unitType)
             {
                 default: return new MeleeUnit("Bruiser", newX, newY, 300, 1, tempAttack, 1, team, "♣", false); break;
@@ -107,10 +107,11 @@ namespace RTS_POE
 
         public override void saveFile()
         {
+            // creates and opens file for writing 
             FileStream savefile = new FileStream(Environment.CurrentDirectory + "\\FactoryBuildings.txt", FileMode.Append, FileAccess.Write);
             StreamWriter writer = new StreamWriter(savefile);
-
-            writer.WriteLine(Team + "," + XPos + "," + YPos + "," + Health + "," + HEALTH_MAX + "," + unitType + "," + ProductionSpeed);
+            // o = team, 1 = x, 2 = y, 3 = health, 4 = unit , 5 = production speed
+            writer.WriteLine(Team + "," + XPos + "," + YPos + "," + Health + "," + unitType + "," + ProductionSpeed);
             Console.WriteLine("Saved!");
             writer.Close();
             savefile.Close();
