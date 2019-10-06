@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace RTS_POE
 {
@@ -92,6 +93,17 @@ namespace RTS_POE
         public override string ToString()
         {
             return Symbol + "  " + name + Symbol + "\nTeam: " + team + "\nPosition:  X:" + xPos + ", Y:" + yPos + "\nHP: " + Health + "\nCOLLECTOR STATS...\nType: "+rType+"\nStockpile: " +rGenTotal+ "\nEfficiency: "+rGenPerRound+"\nEstimated Reserves\n"+status;
+        }
+
+        public override void saveFile()
+        {
+            FileStream savefile = new FileStream(Environment.CurrentDirectory + "\\ResourcesBuildings.txt", FileMode.Append, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(savefile);
+
+            writer.WriteLine(Team + "," + XPos + "," + YPos + "," + Health + "," + HEALTH_MAX + "," + rType + "," + rGenTotal + "," + rGenPerRound + "," + rPool);
+            Console.WriteLine("Saved!");
+            writer.Close();
+            savefile.Close();
         }
     }
 }

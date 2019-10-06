@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace RTS_POE
@@ -67,6 +68,12 @@ namespace RTS_POE
         {
             // this stops the clock.
             tmrClock.Stop();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            engine.Save();
+
         }
     } 
 }

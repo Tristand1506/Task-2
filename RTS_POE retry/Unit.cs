@@ -148,6 +148,7 @@ namespace RTS_POE
         public abstract void death();
 
         public abstract string ToString();
+        public abstract void saveFile();
         
 
 

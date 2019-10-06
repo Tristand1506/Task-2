@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace RTS_POE
 {
@@ -125,15 +126,64 @@ namespace RTS_POE
         }
 
 
-
-
-
-
-        public override void move(int Direction, int Diagonal)
+        public override void move(int DirectionLR, int DirectionUD)
         {
-            Random rnd = new Random();
-            XPos += rnd.Next(-1, 1);
-            YPos += rnd.Next(-1, 1);
+            // handles the horisontal movement
+            switch (DirectionLR)
+            {
+                case 0: break;
+                case 1:
+                    if (this.xPos + 1 > 20)
+                    {
+                        XPos = 20;
+                    }
+                    else
+                    {
+                        this.xPos = this.xPos + 1; //Right
+                    }
+                    break;
+
+                case 2:
+                    if (this.XPos - 1 < 0)
+                    {
+                        XPos = 0;
+                    }
+                    else
+                    {
+                        this.xPos = this.xPos - 1;  //Left
+                    }
+                    break;
+
+
+            }
+            /// handles vertical movement
+            switch (DirectionUD)
+            {
+                case 0: break;
+                case 1:
+                    if (this.YPos + 1 > 20)
+                    {
+                        YPos = 20;
+                    }
+                    else
+                    {
+                        this.YPos = this.YPos + 1;  //down
+                    }
+                    break;
+                case 2:
+                    if (this.YPos - 1 < 0)
+                    {
+                        YPos = 0;
+                    }
+                    else
+                    {
+                        this.yPos = this.yPos - 1;  //up
+                    }
+                    break;
+
+            }
+
+
         }
 
         public override void combat( Unit enemy)
@@ -189,6 +239,18 @@ namespace RTS_POE
             return Symbol + "  "+name+Symbol+"\nTeam: " + team + "\nPosition:  X:" + XPos + ", Y:" + YPos + "\nHP: " + Health + "\nAttack: " + Attack;
 
             
+        }
+        public override void saveFile()
+        {
+            // saves to a text file in bin\debug\
+           
+            FileStream savefile = new FileStream(Environment.CurrentDirectory + "\\RangeUnits.txt", FileMode.Append, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(savefile);
+
+            writer.WriteLine(Team + ", " + XPos + ", " + YPos + ", " + Health + " ," + HEALTH_MAX + ", " + speed);
+            Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory + "\nSaved!");
+            writer.Close();
+            savefile.Close();
         }
     }
 }

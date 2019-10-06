@@ -50,5 +50,7 @@ namespace RTS_POE
 
         public string Name { get { return name; } set { name = value; } }
 
+        public abstract void saveFile();
+
     }
 }

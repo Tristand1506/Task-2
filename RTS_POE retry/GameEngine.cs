@@ -17,7 +17,7 @@ namespace RTS_POE
         Object selected;
 
         //builds map and sets number of starting units and buildings
-        public Map battleMap = new Map(0,10);
+        public Map battleMap = new Map(10,5);
 
         //global random number generator
         Random rnd = new Random();
@@ -250,5 +250,13 @@ namespace RTS_POE
         //    }
         //    return isOpen;
         //}
+
+        public void Save()
+        {
+            battleMap.Save();
+        }
     }
+
+    
+
 }

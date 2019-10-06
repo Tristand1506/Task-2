@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace RTS_POE
 {
@@ -75,7 +76,7 @@ namespace RTS_POE
 
                 
 
-                // randomly gives unit type
+                // randomly gives building type
                 switch (rnd.Next(0,2))
                 {
                     case 0: buildings[i] = new ResourceBuilding("Extractor", newX, newY, 300,team, "♦",grid[newX,newY]); break;
@@ -134,6 +135,27 @@ namespace RTS_POE
             {
                
             }
+        }
+
+        public void Save()
+        {
+            File.Create(Environment.CurrentDirectory + "\\MeleeUnits.txt").Close();
+            File.Create(Environment.CurrentDirectory + "\\RangeUnits.txt").Close();
+            File.Create(Environment.CurrentDirectory + "\\ResourcesBuildings.txt").Close();
+            File.Create(Environment.CurrentDirectory + "\\FactoryBuildings.txt").Close();
+            foreach (Unit u in units)
+            {
+                u.saveFile();
+            }
+            foreach (Building b in buildings)
+            {
+                b.saveFile();
+            }
+        }
+
+        public void Load()
+        {
+            
         }
     }
 }

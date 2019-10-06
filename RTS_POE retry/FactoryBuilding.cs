@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace RTS_POE
 {
@@ -103,7 +104,18 @@ namespace RTS_POE
             } 
 
         }
-                
+
+        public override void saveFile()
+        {
+            FileStream savefile = new FileStream(Environment.CurrentDirectory + "\\FactoryBuildings.txt", FileMode.Append, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(savefile);
+
+            writer.WriteLine(Team + "," + XPos + "," + YPos + "," + Health + "," + HEALTH_MAX + "," + unitType + "," + ProductionSpeed);
+            Console.WriteLine("Saved!");
+            writer.Close();
+            savefile.Close();
+        }
+
     }
 }
 

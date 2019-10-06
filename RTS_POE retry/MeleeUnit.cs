@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace RTS_POE
 {
@@ -247,6 +248,17 @@ namespace RTS_POE
             return Symbol + "  "+name + Symbol +"\nTeam: " + team + "\nPosition:  X:" + XPos + ", Y:" + YPos + "\nHP: " + Health + "\nAttack: " + Attack;
 
             
+        }
+
+        public override void saveFile()
+        {
+            FileStream savefile = new FileStream(Environment.CurrentDirectory +"\\MeleeUnits.txt", FileMode.Append, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(savefile);
+
+            writer.WriteLine(Team + ", " + XPos + ", " + YPos + ", " + Health + " ," + HEALTH_MAX + ", " + speed);
+            Console.WriteLine("Saved!");
+            writer.Close();
+            savefile.Close();
         }
     }
 }
